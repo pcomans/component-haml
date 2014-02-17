@@ -1,10 +1,12 @@
 {
   "name": "component-sass",
   "version": "0.1.2",
-  "description": "Sass plugin for component-build",
+  "description": "Compile SCSS to CSS using node-sass",
   "main": "index.js",
-  "scripts": {},
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anthonyshort/component-sass.git"
+  },
   "keywords": [
     "builder",
     "component",
