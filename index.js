@@ -9,13 +9,13 @@ module.exports = function(builder) {
     // No styles in this package
     if(pkg.root !== true || !pkg.config.styles) return next();
 
-    // Get all the coffee files from the scripts list
-    var sassfiles = pkg.config.styles.filter(function(file){
+    // Get all the scss files from the scripts list
+    var sassfiles = pkg.config.styles.filter(function(file) {
       return path.extname(file) === '.scss';
     });
 
     // No sass files
-    if( sassfiles.length === 0 ) return next();
+    if (sassfiles.length === 0) return next();
 
     // Sass load paths
     var loadPaths = (pkg.config.paths || []).map(pkg.path, pkg).concat(pkg.path('components'));
