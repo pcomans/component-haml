@@ -1,0 +1,10 @@
+@import "utils/index";
+
+body {
+  @include test;
+  color: red;
+
+  div {
+    display: block;
+  }
+}

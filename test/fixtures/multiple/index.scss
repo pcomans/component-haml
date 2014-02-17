@@ -1,0 +1,10 @@
+@import "./imported";
+
+body {
+  @include foo;
+  color: red;
+
+  div {
+    display: block;
+  }
+}

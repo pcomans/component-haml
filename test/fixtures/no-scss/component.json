@@ -1,0 +1,6 @@
+{
+  "name": "no-scss",
+  "styles": [
+    "index.css"
+  ]
+}
