@@ -1,19 +1,19 @@
-var sass = require('node-sass');
+var Haml = require('haml');
 var path = require('path');
 var async = require('async');
 
 module.exports = function(builder) {
-  builder.hook('before styles', function(pkg, next) {
+  builder.hook('before scripts', function(pkg, next) {
     // No styles in this package
     if (!pkg.config.styles) return next();
 
     // Get all the scss files from the scripts list
-    var sassfiles = pkg.config.styles.filter(function(file) {
-      return path.extname(file) === '.scss';
+    var hamlfiles = pkg.config.templates.filter(function(file) {
+      return path.extname(file) === '.haml';
     });
 
     // No sass files
-    if (sassfiles.length === 0) return next();
+    if (hamlfiles.length === 0) return next();
 
     // Sass load paths
     var loadPaths = (pkg.config.paths || [])
@@ -21,14 +21,11 @@ module.exports = function(builder) {
       .concat(pkg.globalLookupPaths);
 
     // Compile them all
-    async.each(sassfiles, function(file, cb) {
-      var css = sass.renderSync({
-        file: pkg.path(file),
-        includePaths: loadPaths
-      });
+    async.each(hamlfiles, function(file, cb) {
+      var fun = Haml.compile(file);
 
-      pkg.removeFile('styles', file);
-      pkg.addFile('styles', path.basename(file, path.extname(file)) + '.css', css);
+      pkg.removeFile('templates', file);
+      pkg.addFile('templates', path.basename(file, path.extname(file)) + '.js', fun);
 
       cb();
     }, next);

@@ -1,23 +1,19 @@
 {
   "name": "component-sass",
-  "version": "0.1.2",
-  "description": "Compile SCSS to CSS using node-sass",
+  "version": "0.0.1",
+  "description": "Compile HAML to a function",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/anthonyshort/component-sass.git"
-  },
   "keywords": [
     "builder",
     "component",
     "plugin",
-    "sass"
+    "haml"
   ],
   "author": "Anthony Short",
   "license": "BSD",
   "dependencies": {
-    "node-sass": "~0.8.1",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "haml": "^0.4.3"
   },
   "devDependencies": {
     "mocha": "~1.17.1",
