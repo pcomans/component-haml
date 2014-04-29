@@ -3,13 +3,17 @@
   "version": "0.0.1",
   "description": "Compile HAML to a function",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pcomans/component-haml.git"
+  },
   "keywords": [
     "builder",
     "component",
     "plugin",
     "haml"
   ],
-  "author": "Anthony Short",
+  "author": "Philipp Comans",
   "license": "BSD",
   "dependencies": {
     "async": "~0.2.10",
